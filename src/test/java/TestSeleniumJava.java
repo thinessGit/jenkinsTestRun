@@ -13,7 +13,7 @@ public class TestSeleniumJava {
         System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
         //System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get("https://www.google.com/");
         System.out.println("### Title ###");
@@ -21,7 +21,8 @@ public class TestSeleniumJava {
         System.out.println("### ---- ###");
         Assert.assertTrue("Page Title is not corect",driver.getTitle().trim().equalsIgnoreCase("Google") );
 
-
+        driver.close();
+        driver.quit();
     }
 
 }
